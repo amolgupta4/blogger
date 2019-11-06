@@ -1,0 +1,33 @@
+#blog_show.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-default
+      .panel.heading.blog_image
+        = image_tag @blog.image.url
+      .panel-body   
+        %h1= @blog.title
+        %p= @blog.description
+      
+      .panel-footer
+        .row
+          .col-md-6
+            %p.user
+              by
+              = @blog.user.email
+
+          .col.md-6
+            .btn-group.pull-right
+              = link_to like_blog_path(@blog), method: :put, class: "btn btn-default" do
+                %span.glyphicon.glyphicon-thumbs-up
+                = @blog.get_upvotes.size
+
+              - if user_signed_in?     
+                = link_to "Edit", edit_blog_path, class: "btn btn-info"
+                = link_to "Delete", blog_path, method: :delete, data: { confirm: "Are you sure" }, class: "btn btn-danger"
+        .row
+          .col-md-6
+            %h1 comments
+            %p= render @blog.comments
+            - if user_signed_in?
+              = link_to "Add Comment", new_blog_comment_path(@blog), class: "btn-custom"
+
+              

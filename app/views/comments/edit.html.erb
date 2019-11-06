@@ -1,0 +1,10 @@
+<div class="col-md-10 col-md-offset-1">
+	<div>
+		<h1>Edit comment</h1>
+          <%= simple_form_for([@blog, @comment]) do |f| %>
+	      
+	      <%= f.input :comment %>
+	      <%= f.button :submit, :class => "btn-custom2" %>
+<% end %>
+</div>
+</div>

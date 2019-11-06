@@ -1,0 +1,6 @@
+.col-12
+  #blogs.transitions-enabled
+    - @blogs.each do |blog|
+      .box.panel.panel-default
+        = link_to (image_tag blog.image.url),blog
+        %h2= link_to blog.title, blog

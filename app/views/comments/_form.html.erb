@@ -1,0 +1,7 @@
+<%= simple_form_for([@blog, @blog.comments.build]) do |f| %>
+	
+	<%= f.input :comment %>
+	<%= f.button :submit, :class => "btn-custom2" %>
+<% end %>
+
+
